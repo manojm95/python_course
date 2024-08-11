@@ -22,21 +22,21 @@ operator_dict = {
     'add': add,
     'sub': sub,
     'mul': mul,
-    'div': division
+    'div': division,
+    "div_float": division
 }
 
 
-def calculator(operator, x, y):
-    if operator == 'add':
-        answer = add(x, y)
-    elif operator == 'sub':
-        answer = sub(x, y)
-    elif operator == 'mul':
-        answer = mul(x, y)
-    elif operator == 'div':
-        answer = division(x, y)
-    # answer = operator_dict[operator](x, y)
+# operator can be add, sub, mul or div
+def calculator(operator, inputs):
+    # if operator not in ['add', 'sub', 'mul', 'div']:
+    #     raise Exception
+    if operator not in operator_dict.keys():
+        raise Exception
+    x = inputs[0]
+    y = inputs[1]
+    answer = operator_dict[operator](x, y)
     print(answer)
 
 
-calculator('mul', 2, 3)
+calculator('add1', [2, 3])
